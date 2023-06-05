@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
+import 'visualizacao_img.dart';
+import 'analise_img.dart';
+import 'historico.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -25,26 +29,49 @@ class NavBar extends StatelessWidget {
                 ),
                 fit: BoxFit.cover,
               ))),
-          // Adicione outros itens à lista aqui
           ListTile(
             leading: Icon(Icons.home),
             title: Text('Home'),
-            onTap: () => print('Fav'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+            },
           ),
           ListTile(
             leading: Icon(Icons.image),
             title: Text('Visualização de imagens'),
-            onTap: () => print('Fav'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => visualizacao_img()),
+              );
+            },
           ),
           ListTile(
             leading: Icon(Icons.details),
             title: Text('Análise de imagens'),
-            onTap: () => print('Fav'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => analise_img()),
+              );
+            },
           ),
           ListTile(
             leading: Icon(Icons.history),
             title: Text('Histórico'),
-            onTap: () => print('Fav'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => historico()),
+              );
+            },
           ),
         ],
       ),

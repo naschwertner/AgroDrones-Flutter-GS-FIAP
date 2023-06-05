@@ -18,7 +18,7 @@ class NavBar extends StatelessWidget {
                   fit: BoxFit.cover,
                 )),
               ),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                 image: NetworkImage(
                   'https://blog.climatefieldview.com.br/hubfs/drone%20é%20usado%20no%20monitoramento.jpg',
@@ -26,6 +26,26 @@ class NavBar extends StatelessWidget {
                 fit: BoxFit.cover,
               ))),
           // Adicione outros itens à lista aqui
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text('Home'),
+            onTap: () => print('Fav'),
+          ),
+          ListTile(
+            leading: Icon(Icons.image),
+            title: Text('Visualização de imagens'),
+            onTap: () => print('Fav'),
+          ),
+          ListTile(
+            leading: Icon(Icons.details),
+            title: Text('Análise de imagens'),
+            onTap: () => print('Fav'),
+          ),
+          ListTile(
+            leading: Icon(Icons.history),
+            title: Text('Histórico'),
+            onTap: () => print('Fav'),
+          ),
         ],
       ),
     );

@@ -139,6 +139,12 @@ class _HistoricoState extends State<Historico> {
                               fontSize: 14.0,
                             ),
                           ),
+                          Text(
+                            filteredData[index]['data']!,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                            ),
+                          ),
                         ],
                       ),
                     ],

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
 import 'VisualizacaoImg.dart';
 import 'Historico.dart';
 

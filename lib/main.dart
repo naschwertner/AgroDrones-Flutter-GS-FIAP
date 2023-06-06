@@ -6,7 +6,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({Key? key, required this.title});
   final String title;
 
   @override
@@ -45,6 +45,49 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: <Widget>[
+            Image.asset(
+              'logo.png',
+              height: 400,
+              width: 400,
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: Text(
+                'Bem-vindo ao AgroDrones!',
+                style: TextStyle(fontSize: 24),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Informações Gerais:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Center(
+              child: Text(
+                'Sistema de monitoramento de plantações utilizando drones.',
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Plantações Monitoradas:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Center(
+              child: Text(
+                '- Plantio de milho\n- Plantio de trigo\n- Plantio de soja',
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

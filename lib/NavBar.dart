@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'VisualizacaoImg.dart';
-import 'analise_img.dart';
-import 'historico.dart';
+import 'AnaliseImg.dart';
+import 'Historico.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -58,7 +58,7 @@ class NavBar extends StatelessWidget {
               Navigator.pop(context);
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => analise_img()),
+                MaterialPageRoute(builder: (context) => AnaliseImg()),
               );
             },
           ),
@@ -69,7 +69,7 @@ class NavBar extends StatelessWidget {
               Navigator.pop(context);
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => historico()),
+                MaterialPageRoute(builder: (context) => Historico()),
               );
             },
           ),

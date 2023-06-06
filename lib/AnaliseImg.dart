@@ -2,8 +2,8 @@ import 'main.dart';
 
 import 'package:flutter/material.dart';
 
-class Historico extends StatelessWidget {
-  Historico({Key? key}) : super(key: key);
+class AnaliseImg extends StatelessWidget {
+  AnaliseImg({Key? key}) : super(key: key);
 
   final List<Map<String, String>> imgData = [
     {
@@ -18,37 +18,14 @@ class Historico extends StatelessWidget {
       'id': 'ID195515435617',
       'name': 'Drone 2'
     },
-    {
-      'url':
-          'https://as2.ftcdn.net/v2/jpg/03/33/81/09/500_F_333810946_myQ5U5TlGfOfESvI9FrKEf8ELUcWdNCG.jpg',
-      'id': 'ID195515435617',
-      'name': 'Drone 3'
-    },
-    {
-      'url':
-          'https://as1.ftcdn.net/v2/jpg/02/98/24/22/1000_F_298242226_jw0LilQmIALroH1LQScpIk9cjcLsFcbp.jpg',
-      'id': 'ID195515435617',
-      'name': 'Drone 4'
-    },
-    {
-      'url':
-          'https://as1.ftcdn.net/v2/jpg/02/42/56/26/500_F_242562684_5VC68EHElXConqPjRazxCGuJk6btgmec.jpg',
-      'id': 'ID195515435617',
-      'name': 'Drone 5'
-    },
-    {
-      'url':
-          'https://t4.ftcdn.net/jpg/02/44/49/75/360_F_244497513_pj9qN7NuQHYdAEMtLOEvHAjXZlv6bTbG.webp',
-      'id': 'ID195515435617',
-      'name': 'Drone 6'
-    },
+    // adicione mais mapas conforme necessário
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Histórico das Imagens Capturadas'),
+        title: Text('Análise de Imagens'),
         backgroundColor: Color.fromARGB(255, 35, 125, 71),
       ),
       body: ListView.builder(

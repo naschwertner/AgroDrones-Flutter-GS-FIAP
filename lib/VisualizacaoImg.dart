@@ -12,6 +12,8 @@ class VisualizacaoImg extends StatelessWidget {
       'text': 'ID195515435616',
       'text2': 'Latitude: 19º55 15" S',
       'text3': 'Longitude: 43º56 16" W',
+      'analysis':
+          'A análise de imagem de solo agrícola foi realizada com base em uma foto capturada por um drone, mostrando uma plantação. A inteligência artificial identificou boas condições de textura e presença de nutrientes no solo, além da ausência de pragas e doenças visíveis. Recomenda-se monitorar a umidade do solo e acompanhar o crescimento da cobertura vegetal para garantir um desenvolvimento saudável.'
     },
     {
       'url':
@@ -19,6 +21,8 @@ class VisualizacaoImg extends StatelessWidget {
       'text': 'ID195515435623',
       'text2': 'Latitude: 19º55 15" S',
       'text3': 'Longitude: 43º56 23" W',
+      'analysis':
+          'Através da análise de uma imagem capturada por um drone em uma plantação, foi possível observar que o solo apresenta uma textura adequada e indícios de nutrientes presentes. Não foram encontradas evidências de pragas ou doenças. Sugere-se monitorar a umidade do solo e o crescimento da cobertura vegetal para manter o desenvolvimento saudável das plantas.'
     },
     {
       'url':
@@ -26,7 +30,8 @@ class VisualizacaoImg extends StatelessWidget {
       'text': 'ID195515435630',
       'text2': 'Latitude: 19º55 15" S',
       'text3': 'Longitude: 43º56 30" W',
-      'ElevatedButton': 'teste'
+      'analysis':
+          'Com base em uma análise de imagem de solo agrícola obtida por um drone, verificou-se que o solo apresenta uma textura favorável e indícios de nutrientes. Não foram identificadas pragas ou doenças aparentes. Recomenda-se monitorar a umidade do solo e acompanhar o crescimento da cobertura vegetal para garantir um bom desenvolvimento da plantação.'
     },
     {
       'url':
@@ -34,6 +39,8 @@ class VisualizacaoImg extends StatelessWidget {
       'text': 'ID195515435647',
       'text2': 'Latitude: 19º55 15" S',
       'text3': 'Longitude: 43º56 47" W',
+      'analysis':
+          'Utilizando a análise de uma imagem de solo agrícola capturada por um drone, constatou-se que o solo exibe uma textura adequada e indícios de nutrientes presentes. Não foram encontrados sinais visíveis de pragas ou doenças. Recomenda-se monitorar a umidade do solo e a evolução da cobertura vegetal para manter a saúde e o crescimento das plantas.'
     },
     {
       'url':
@@ -41,6 +48,8 @@ class VisualizacaoImg extends StatelessWidget {
       'text': 'ID195515435654',
       'text2': 'Latitude: 19º55 15" S',
       'text3': 'Longitude: 43º56 54" W',
+      'analysis':
+          'A partir da análise de uma imagem de solo agrícola obtida por meio de um drone, verificou-se que o solo possui uma textura apropriada e indicações de nutrientes disponíveis. Não foram observadas pragas ou doenças aparentes. Recomenda-se o monitoramento regular da umidade do solo e do desenvolvimento da cobertura vegetal para garantir o sucesso do cultivo.'
     },
     {
       'url':
@@ -48,6 +57,8 @@ class VisualizacaoImg extends StatelessWidget {
       'text': 'ID195515435661',
       'text2': 'Latitude: 19º55 15" S',
       'text3': 'Longitude: 43º56 61" W',
+      'analysis':
+          'Após analisar uma imagem de solo agrícola capturada por um drone, foi constatado que o solo apresenta uma textura favorável e evidências de nutrientes. Não foram identificadas pragas ou doenças visíveis. Recomenda-se a monitorização da umidade do solo e o acompanhamento do crescimento da cobertura vegetal para garantir um ambiente propício ao cultivo saudável.'
     },
   ];
 
@@ -99,12 +110,14 @@ class VisualizacaoImg extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          AnaliseImg(id: imgData[index]['text']!),
-                    ),
-                  );
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AnaliseImg(
+                          id: imgData[index]['text']!,
+                          imgUrl: imgData[index]['url']!,
+                          analysis: imgData[index]['analysis']!,
+                        ),
+                      ));
                 },
                 child: Text('Ver análise'),
               )

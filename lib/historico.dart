@@ -1,11 +1,14 @@
-import 'main.dart';
-
 import 'package:flutter/material.dart';
 
-class Historico extends StatelessWidget {
+class Historico extends StatefulWidget {
   Historico({Key? key}) : super(key: key);
 
-  final List<Map<String, String>> imgData = [
+  @override
+  _HistoricoState createState() => _HistoricoState();
+}
+
+class _HistoricoState extends State<Historico> {
+  List<Map<String, String>> imgData = [
     {
       'url':
           'https://as1.ftcdn.net/v2/jpg/02/64/83/16/1000_F_264831691_dRX2OwpVvOW24mben6VIj2q5sHhJA5Ke.jpg',
@@ -50,6 +53,36 @@ class Historico extends StatelessWidget {
     },
   ];
 
+  List<Map<String, String>> filteredData = [];
+  List<Map<String, String>> dummySearchList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    filteredData = [...imgData];
+    dummySearchList = [...imgData];
+  }
+
+  void filterSearchResults(String query) {
+    if (query.isNotEmpty) {
+      List<Map<String, String>> dummyListData = [];
+      dummySearchList.forEach((item) {
+        if (item['id']!.contains(query)) {
+          dummyListData.add(item);
+        }
+      });
+      setState(() {
+        filteredData.clear();
+        filteredData.addAll(dummyListData);
+      });
+    } else {
+      setState(() {
+        filteredData.clear();
+        filteredData.addAll(dummySearchList);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,48 +90,64 @@ class Historico extends StatelessWidget {
         title: Text('Histórico das Imagens Capturadas'),
         backgroundColor: Color.fromARGB(255, 35, 125, 71),
       ),
-      body: ListView.builder(
-        itemCount: imgData.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
+      body: Column(
+        children: [
+          Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Image.network(
-                  imgData[index]['url']!,
-                  width: 100.0,
-                  height: 100.0,
+            child: TextField(
+              onChanged: (value) {
+                filterSearchResults(value);
+              },
+              decoration: InputDecoration(
+                labelText: "Search",
+                hintText: "Search",
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(25.0)),
                 ),
-                SizedBox(width: 10.0),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      imgData[index]['id']!,
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 5.0),
-                    Text(
-                      imgData[index]['name']!,
-                      style: TextStyle(
-                        fontSize: 14.0,
-                      ),
-                    ),
-                    Text(
-                      imgData[index]['data']!,
-                      style: TextStyle(
-                        fontSize: 14.0,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+              ),
             ),
-          );
-        },
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: filteredData.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Image.network(
+                        filteredData[index]['url']!,
+                        width: 100.0,
+                        height: 100.0,
+                      ),
+                      SizedBox(width: 10.0),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            filteredData[index]['id']!,
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 5.0),
+                          Text(
+                            filteredData[index]['name']!,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
-import 'visualizacao_img.dart';
+import 'VisualizacaoImg.dart';
 import 'analise_img.dart';
 import 'historico.dart';
 
@@ -47,7 +47,7 @@ class NavBar extends StatelessWidget {
               Navigator.pop(context);
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => visualizacao_img()),
+                MaterialPageRoute(builder: (context) => VisualizacaoImg()),
               );
             },
           ),

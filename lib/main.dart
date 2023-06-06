@@ -48,4 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+  List<String> droneImages = [
+    'img 1',
+    'img 2',
+    'img 3',
+    'img 4',
+  ];
 }

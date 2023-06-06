@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'AnaliseImgHistorico.dart';
+
 class Historico extends StatefulWidget {
   Historico({Key? key}) : super(key: key);
 
@@ -14,7 +16,9 @@ class _HistoricoState extends State<Historico> {
           'https://as1.ftcdn.net/v2/jpg/02/64/83/16/1000_F_264831691_dRX2OwpVvOW24mben6VIj2q5sHhJA5Ke.jpg',
       'id': 'ID195515435616',
       'name': 'Drone 1',
-      'data': 'Dia 03/04/2023'
+      'data': 'Dia 03/04/2023',
+      'analysis':
+          'A análise de imagem de solo agrícola foi realizada com base em uma foto capturada por um drone, mostrando uma plantação. A inteligência artificial identificou boas condições de textura e presença de nutrientes no solo, além da ausência de pragas e doenças visíveis. Recomenda-se monitorar a umidade do solo e acompanhar o crescimento da cobertura vegetal para garantir um desenvolvimento saudável.'
     },
     {
       'url':
@@ -52,7 +56,6 @@ class _HistoricoState extends State<Historico> {
       'data': 'Dia 27/06/2023'
     },
   ];
-
   List<Map<String, String>> filteredData = [];
   List<Map<String, String>> dummySearchList = [];
 
@@ -115,6 +118,7 @@ class _HistoricoState extends State<Historico> {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Image.network(
                         filteredData[index]['url']!,
@@ -122,30 +126,43 @@ class _HistoricoState extends State<Historico> {
                         height: 100.0,
                       ),
                       SizedBox(width: 10.0),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            filteredData[index]['id']!,
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              filteredData[index]['id']!,
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 5.0),
-                          Text(
-                            filteredData[index]['name']!,
-                            style: TextStyle(
-                              fontSize: 14.0,
+                            SizedBox(height: 5.0),
+                            Text(
+                              filteredData[index]['name']!,
+                              style: TextStyle(
+                                fontSize: 14.0,
+                              ),
                             ),
-                          ),
-                          Text(
-                            filteredData[index]['data']!,
-                            style: TextStyle(
-                              fontSize: 14.0,
+                            Text(
+                              filteredData[index]['data']!,
+                              style: TextStyle(
+                                fontSize: 14.0,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AnaliseImgHistorico(
+                                    data: filteredData[index])),
+                          );
+                        },
+                        child: Text('Ver Análise'),
                       ),
                     ],
                   ),

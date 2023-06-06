@@ -1,6 +1,3 @@
-import 'main.dart';
-import 'package:flutter/material.dart';
-
 import 'package:flutter/material.dart';
 
 class VisualizacaoImg extends StatelessWidget {
@@ -11,33 +8,44 @@ class VisualizacaoImg extends StatelessWidget {
       'url':
           'https://as1.ftcdn.net/v2/jpg/02/64/83/16/1000_F_264831691_dRX2OwpVvOW24mben6VIj2q5sHhJA5Ke.jpg',
       'text': 'ID195515435616',
+      'text2': 'Latitude: 19º55 15" S',
+      'text3': 'Longitude: 43º56 16" W',
     },
     {
       'url':
           'https://as2.ftcdn.net/v2/jpg/02/44/49/75/1000_F_244497526_G8VVBifcserH9NMKLwME0LyOXNOemEpt.jpg',
-      'text': 'ID195515435617',
+      'text': 'ID195515435623',
+      'text2': 'Latitude: 19º55 15" S',
+      'text3': 'Longitude: 43º56 23" W',
     },
     {
       'url':
           'https://as2.ftcdn.net/v2/jpg/03/33/81/09/500_F_333810946_myQ5U5TlGfOfESvI9FrKEf8ELUcWdNCG.jpg',
-      'text': 'ID195515435618',
+      'text': 'ID195515435630',
+      'text2': 'Latitude: 19º55 15" S',
+      'text3': 'Longitude: 43º56 30" W',
     },
     {
       'url':
           'https://as1.ftcdn.net/v2/jpg/02/98/24/22/1000_F_298242226_jw0LilQmIALroH1LQScpIk9cjcLsFcbp.jpg',
-      'text': 'ID195515435619',
+      'text': 'ID195515435647',
+      'text2': 'Latitude: 19º55 15" S',
+      'text3': 'Longitude: 43º56 47" W',
     },
     {
       'url':
           'https://as1.ftcdn.net/v2/jpg/02/42/56/26/500_F_242562684_5VC68EHElXConqPjRazxCGuJk6btgmec.jpg',
-      'text': 'ID195515435619',
+      'text': 'ID195515435654',
+      'text2': 'Latitude: 19º55 15" S',
+      'text3': 'Longitude: 43º56 54" W',
     },
     {
       'url':
           'https://t4.ftcdn.net/jpg/02/44/49/75/360_F_244497513_pj9qN7NuQHYdAEMtLOEvHAjXZlv6bTbG.webp',
-      'text': 'ID195515435619',
+      'text': 'ID195515435661',
+      'text2': 'Latitude: 19º55 15" S',
+      'text3': 'Longitude: 43º56 61" W',
     },
-    // adicione mais mapas conforme necessário
   ];
 
   @override
@@ -66,6 +74,20 @@ class VisualizacaoImg extends StatelessWidget {
               SizedBox(height: 10),
               Text(
                 imgData[index]['text']!,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.black,
+                ),
+              ),
+              Text(
+                imgData[index]['text2']!,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.black,
+                ),
+              ),
+              Text(
+                imgData[index]['text3']!,
                 style: TextStyle(
                   fontSize: 16.0,
                   color: Colors.black,

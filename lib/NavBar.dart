@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'VisualizacaoImg.dart';
-import 'AnaliseImg.dart';
 import 'Historico.dart';
 
 class NavBar extends StatelessWidget {
@@ -48,17 +47,6 @@ class NavBar extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => VisualizacaoImg()),
-              );
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.details),
-            title: Text('Análise de imagens'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AnaliseImg()),
               );
             },
           ),

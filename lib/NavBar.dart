@@ -33,10 +33,7 @@ class NavBar extends StatelessWidget {
             title: Text('Home'),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Home()),
-              );
+              Navigator.pushReplacementNamed(context, '/');
             },
           ),
           ListTile(

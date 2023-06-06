@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'AnaliseImg.dart';
+
 class VisualizacaoImg extends StatelessWidget {
   VisualizacaoImg({Key? key}) : super(key: key);
 
@@ -24,6 +26,7 @@ class VisualizacaoImg extends StatelessWidget {
       'text': 'ID195515435630',
       'text2': 'Latitude: 19º55 15" S',
       'text3': 'Longitude: 43º56 30" W',
+      'ElevatedButton': 'teste'
     },
     {
       'url':
@@ -93,6 +96,18 @@ class VisualizacaoImg extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          AnaliseImg(id: imgData[index]['text']!),
+                    ),
+                  );
+                },
+                child: Text('Ver análise'),
+              )
             ],
           );
         }),

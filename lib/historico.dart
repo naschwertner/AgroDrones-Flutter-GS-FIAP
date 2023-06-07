@@ -116,57 +116,65 @@ class _HistoricoState extends State<Historico> {
               itemCount: filteredData.length,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.network(
-                        filteredData[index]['url']!,
-                        width: 100.0,
-                        height: 100.0,
-                      ),
-                      SizedBox(width: 10.0),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              filteredData[index]['id']!,
-                              style: TextStyle(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 5.0),
-                            Text(
-                              filteredData[index]['name']!,
-                              style: TextStyle(
-                                fontSize: 14.0,
-                              ),
-                            ),
-                            Text(
-                              filteredData[index]['data']!,
-                              style: TextStyle(
-                                fontSize: 14.0,
-                              ),
-                            ),
-                          ],
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.lightGreen.shade100,
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AnaliseImgHistorico(
-                                    data: filteredData[index])),
-                          );
-                        },
-                        child: Text('Ver Análise'),
-                      ),
-                    ],
-                  ),
-                );
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.network(
+                                filteredData[index]['url']!,
+                                width: 100.0,
+                                height: 100.0,
+                              ),
+                              SizedBox(width: 10.0),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      filteredData[index]['id']!,
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(height: 5.0),
+                                    Text(
+                                      filteredData[index]['name']!,
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                      ),
+                                    ),
+                                    Text(
+                                      filteredData[index]['data']!,
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            AnaliseImgHistorico(
+                                                data: filteredData[index])),
+                                  );
+                                },
+                                child: Text('Ver Análise'),
+                              ),
+                            ],
+                          ),
+                        )));
               },
             ),
           ),

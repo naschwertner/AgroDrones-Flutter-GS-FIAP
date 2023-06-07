@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: <Widget>[
             Image.asset(
-              'logo.png',
+              'assets/logo.png',
               height: 200,
               width: 200,
             ),

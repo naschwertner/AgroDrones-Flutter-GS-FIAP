@@ -69,61 +69,66 @@ class VisualizacaoImg extends StatelessWidget {
         title: Text('Visualização de Imagens'),
         backgroundColor: Color.fromARGB(255, 35, 125, 71),
       ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        childAspectRatio: 0.6,
-        mainAxisSpacing: 4,
-        crossAxisSpacing: 4,
-        children: List.generate(imgData.length, (index) {
-          return Column(
-            children: [
-              Container(
-                height: 300.0,
-                width: 300.0,
-                child: Image.network(
-                  imgData[index]['url']!,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                imgData[index]['text']!,
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.black,
-                ),
-              ),
-              Text(
-                imgData[index]['text2']!,
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.black,
-                ),
-              ),
-              Text(
-                imgData[index]['text3']!,
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.black,
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AnaliseImg(
-                          id: imgData[index]['text']!,
-                          imgUrl: imgData[index]['url']!,
-                          analysis: imgData[index]['analysis']!,
+      body: OrientationBuilder(
+        builder: (BuildContext context, Orientation orientation) {
+          return GridView.count(
+            crossAxisCount: orientation == Orientation.portrait ? 2 : 4,
+            childAspectRatio: 0.6,
+            mainAxisSpacing: 4,
+            crossAxisSpacing: 4,
+            children: List.generate(imgData.length, (index) {
+              return Column(
+                children: [
+                  Container(
+                    height: 300.0,
+                    width: 300.0,
+                    child: Image.network(
+                      imgData[index]['url']!,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    imgData[index]['text']!,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Text(
+                    imgData[index]['text2']!,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Text(
+                    imgData[index]['text3']!,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AnaliseImg(
+                            id: imgData[index]['text']!,
+                            imgUrl: imgData[index]['url']!,
+                            analysis: imgData[index]['analysis']!,
+                          ),
                         ),
-                      ));
-                },
-                child: Text('Ver análise'),
-              )
-            ],
+                      );
+                    },
+                    child: Text('Ver análise'),
+                  )
+                ],
+              );
+            }),
           );
-        }),
+        },
       ),
     );
   }

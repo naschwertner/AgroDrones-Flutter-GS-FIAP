@@ -1,4 +1,12 @@
-**Projeto em Flutter simulando sistema de monitoramento de plantações com drones e IA generativa.**
+## Getting Started
 
-O aplicativo foi desenvolvido exclusivamente em Flutter, seguindo as melhores práticas de arquitetura e organização de código. No desenvolvimento foi utilizado princípios de design do Flutter para criar uma interface atraente e responsiva, adaptada a diferentes dispositivos e tamanhos de tela. Contém fluxo de navegação coerente e intuitivo, permitindo que o usuário navegue facilmente entre as diferentes funcionalidades do aplicativo.
+This project is a starting point for a Flutter application.
 
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
